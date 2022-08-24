@@ -4,9 +4,9 @@ import java.util.List;
 public class Student {
     private long id;
     private String name;
-    private List<Integer> grades = new ArrayList<>();
+    private static List<Integer> grades = new ArrayList<>();
 
-    Student(long id, String name, List<Integer> grades){
+    Student(long id, String name){
         this.id = id;
         this.name = name;
         this.grades = grades;
@@ -32,7 +32,18 @@ public class Student {
         return grades;
     }
 
-    public void setGrades(List<Integer> grades) {
-        this.grades = grades;
+    public static void addGrade(Integer grade){
+        grades.add(grade);
+    }
+
+    public Integer getGradeAverage(){
+        Integer counter = 0;
+
+        for (Integer grade : this.getGrades() ) {
+            counter += grade;
+        }
+
+        return counter;
+
     }
 }
